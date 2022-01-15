@@ -6,7 +6,7 @@ export function App() {
   const [counter, setCounter] = useState(10);
 
   const handleClick = () => {
-    setCounter((c) => c + 1);
+    setCounter(counter + 1);
   };
 
   return (

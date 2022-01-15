@@ -15,7 +15,9 @@ export function useState(initial) {
   });
 
   const setState = (action) => {
-    hook.queue.push(action);
+    const _action = typeof action === 'function' ? action : () => action
+
+    hook.queue.push(_action);
     reactState.wipRoot = {
       dom: reactState.currentRoot.dom,
       props: reactState.currentRoot.props,

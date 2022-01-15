@@ -34,6 +34,7 @@ module.exports = {
     'no-plusplus': 'off',
     'no-param-reassign': 'off',
     'import/no-unresolved': 'off',
+    'no-console': 'off',
     'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
   },
   ignorePatterns: ['webpack.config.js', 'dist'],

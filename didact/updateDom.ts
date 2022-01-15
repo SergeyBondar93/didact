@@ -1,4 +1,5 @@
 import {
+  getEventTypeByTagName,
   isEvent, isGone, isNew, isProperty,
 } from './utils';
 
@@ -10,7 +11,7 @@ const kebabize = str => {
   }).join('');
 }
 
-export function updateDom(dom, prevProps, nextProps) {
+export function updateDom(dom, prevProps = {}, nextProps = {}) {
   // Remove old or changed event listeners
   Object.keys(prevProps)
     .filter(isEvent)
@@ -55,9 +56,11 @@ export function updateDom(dom, prevProps, nextProps) {
     .filter(isEvent)
     .filter(isNew(prevProps, nextProps))
     .forEach((name) => {
-      const eventType = name
+      const eventType = getEventTypeByTagName(dom.tagName, name)
         .toLowerCase()
         .substring(2);
+
+
       dom.addEventListener(
         eventType,
         nextProps[name],
