@@ -1,6 +1,9 @@
 {
   "plugins": [
-    ["@babel/plugin-transform-react-jsx", { "pragma": "createElement" }]
+    ["@babel/plugin-transform-react-jsx", { 
+      "runtime": "automatic", 
+      "importSource": "didact" 
+    }]
   ],
   "comments": false
 }

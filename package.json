@@ -8,7 +8,7 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "lint:fix": "npx eslint \"src/**\" --fix",
-    "build": "webpack"
+    "build": "webpack --watch"
   },
   "keywords": [
     "react"

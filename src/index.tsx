@@ -1,4 +1,4 @@
-import { render, useState, createElement } from 'didact';
+import { render, useState } from 'didact';
 
 function Counter({ count }) {
   return <h1>{ count }</h1>;
@@ -13,7 +13,9 @@ function App() {
 
   return (
     <div>
-      <h1>Counter</h1>
+      <h1>
+        Counter
+      </h1>
       <button onClick={handleClick}>
         Inc
       </button>

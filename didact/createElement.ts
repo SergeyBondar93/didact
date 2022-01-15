@@ -8,12 +8,14 @@ function createTextElement(text) {
   };
 }
 
-export function createElement(type, props, ...children) {
+export function createElement(type, { children, ...props }) {
+  let _children = Array.isArray(children) ? children : [children]
+
   return {
     type,
     props: {
       ...props,
-      children: children.map((child) => (typeof child === 'object'
+      children: _children.map((child) => (typeof child === 'object'
         ? child
         : createTextElement(child))),
     },
