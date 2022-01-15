@@ -22,8 +22,13 @@ export function Form() {
   };
 
   return (
-    <form>
-      {
+    <div>
+      {/* TODO
+        необходимо пробегаться по чилдренам и если тип - массив,
+        разворачивать, что бы была плоская структура
+      */}
+      <form>
+        {
         Object.keys(formState).map((fieldName) => (
           <div
             style={{
@@ -40,11 +45,15 @@ export function Form() {
               value={formState[fieldName]}
               name={fieldName}
               onChange={handleChange}
-              onInput={(e) => console.log(e)}
             />
           </div>
         ))
       }
-    </form>
+
+      </form>
+      <p>{formState.name}</p>
+      <p>{formState.email}</p>
+      <p>{formState.password}</p>
+    </div>
   );
 }
