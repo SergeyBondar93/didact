@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "didact": ["didact/index.ts"]
+    },
+    "target": "ESNext",                                 
+    "module": "ESNext",
+    "moduleResolution": "Node",                               
+    "esModuleInterop": true,                            
+    "forceConsistentCasingInFileNames": true,           
+    "strict": false,
+    "allowJs": true,                                     
+    "skipLibCheck": true                                
+  }
+}
