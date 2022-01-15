@@ -2,6 +2,14 @@ import {
   isEvent, isGone, isNew, isProperty,
 } from './utils';
 
+const kebabize = str => {
+  return str.split('').map((letter, idx) => {
+    return letter.toUpperCase() === letter
+     ? `${idx !== 0 ? '-' : ''}${letter.toLowerCase()}`
+     : letter;
+  }).join('');
+}
+
 export function updateDom(dom, prevProps, nextProps) {
   // Remove old or changed event listeners
   Object.keys(prevProps)
@@ -33,7 +41,13 @@ export function updateDom(dom, prevProps, nextProps) {
     .filter(isProperty)
     .filter(isNew(prevProps, nextProps))
     .forEach((name) => {
-      dom[name] = nextProps[name];
+      if (name === 'style') {
+        dom[name] = Object.entries(nextProps[name]).map(([cssPropName, cssValue]) => {
+          return `${kebabize(cssPropName)}: ${cssValue}`  
+        }).join(';');
+      } else {
+        dom[name] = nextProps[name];
+      }
     });
 
   // Add event listeners

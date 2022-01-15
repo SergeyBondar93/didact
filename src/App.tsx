@@ -1,5 +1,6 @@
 import { useState } from 'didact';
 import { Counter } from './Counter';
+import { Form } from './Form';
 
 export function App() {
   const [counter, setCounter] = useState(10);
@@ -17,6 +18,8 @@ export function App() {
         Inc
       </button>
       <Counter count={counter} />
+
+      <Form />
     </div>
   );
 }
